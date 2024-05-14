@@ -1,0 +1,16 @@
+﻿services:
+  companyapi:
+    image: companyapi
+    build:
+      context: .
+      dockerfile: CompanyApi/Dockerfile
+  postgres:
+    image: 'postgres:latest'
+    environment:
+      - 'POSTGRES_DB=Data'
+      - 'POSTGRES_PASSWORD=password'
+      - 'POSTGRES_USER=admin'
+    ports:
+      - '5432:5432'
+    command:
+      - -p 5432
